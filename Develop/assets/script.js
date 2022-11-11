@@ -58,35 +58,41 @@ function writePassword() {
   // if user selected yes(true) for lower case option - combine string together with option string
   if(hasLower) {
     passOptions += lowerCase;
-    // makes sure password contains at least one lower case letter
+    // makes sure password contains at least one lower case letter if user selected true
     passwordString += lowerArray[Math.floor(Math.random() * lowerArray.length)];
   }
 
   // if user selected yes(true) for upper case option - combine string together with option string
   if(hasUpper) {
     passOptions += upperCase;
-    // makes sure password contains at least one upper case letter
+    // makes sure password contains at least one upper case letter if user selected true
     passwordString += upperArray[Math.floor(Math.random() * upperArray.length)];
   }
 
   // if user selected yes(true) for number option - combine string together with option string
   if(hasNumber) {
     passOptions += numeric;
-    // makes
+    // makes sure password contains at least one number if user selected true
+    passwordString += numArray[Math.floor(Math.random() * numArray.length)];
   }
 
   // if user selected yes(true) for special character option - combine string together with option string
   if(hasSpecial) {
     passOptions += specialCharacter;
+    // makes sure password contains at least one special character if user selected true
+    passwordString += specialArray[Math.floor(Math.random() * specialArray.length)];
   }
   // variable passOptions now contains variable for every possible character the user can get for their password
 
   for (var i=0; i < size; i++) {
     passwordString += passOptions.charAt(Math.floor(Math.random() * passOptions.length));
   }
+
+  // stores the value of passwordString as the value for password
 password.value = passwordString
 
   return;
 }
 
+// call the function for the first time
 writePassword();
