@@ -26,6 +26,7 @@ function writePassword() {
   password.value = "";
   var passwordString = "";
   var passOptions = "";
+  var required = 0;
 
   // ask user for password size
   var size = prompt("How many characters long do you want your password to be?");
@@ -60,6 +61,7 @@ function writePassword() {
     passOptions += lowerCase;
     // makes sure password contains at least one lower case letter if user selected true
     passwordString += lowerArray[Math.floor(Math.random() * lowerArray.length)];
+    required++;
   }
 
   // if user selected yes(true) for upper case option - combine string together with option string
@@ -67,6 +69,7 @@ function writePassword() {
     passOptions += upperCase;
     // makes sure password contains at least one upper case letter if user selected true
     passwordString += upperArray[Math.floor(Math.random() * upperArray.length)];
+    required++;
   }
 
   // if user selected yes(true) for number option - combine string together with option string
@@ -74,6 +77,7 @@ function writePassword() {
     passOptions += numeric;
     // makes sure password contains at least one number if user selected true
     passwordString += numArray[Math.floor(Math.random() * numArray.length)];
+    required++;
   }
 
   // if user selected yes(true) for special character option - combine string together with option string
@@ -81,10 +85,11 @@ function writePassword() {
     passOptions += specialCharacter;
     // makes sure password contains at least one special character if user selected true
     passwordString += specialArray[Math.floor(Math.random() * specialArray.length)];
+    required++;
   }
   // variable passOptions now contains variable for every possible character the user can get for their password
-
-  for (var i=4; i < size; i++) {
+  var loopvar = size - required;
+  for (var i=0; i < loopvar; i++) {
     passwordString += passOptions.charAt(Math.floor(Math.random() * passOptions.length));
   }
 
