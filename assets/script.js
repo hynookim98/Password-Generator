@@ -84,7 +84,7 @@ function writePassword() {
   }
   // variable passOptions now contains variable for every possible character the user can get for their password
 
-  for (var i=0; i < size; i++) {
+  for (var i=4; i < size; i++) {
     passwordString += passOptions.charAt(Math.floor(Math.random() * passOptions.length));
   }
 
